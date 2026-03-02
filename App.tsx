@@ -5,45 +5,35 @@
  * @format
  */
 
-import { StyleSheet, View, Text, BackHandler } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 function App() {
   return (
-    <SafeAreaProvider style={styles.primaryView}>
-      <SafeAreaView>
-        {/* ==== First View ==== */}
-        <View style={styles.firstView}>
-          <View>
-            <View style={styles.redBox}></View>
-          </View>
-          <View>
-            <View style={styles.teal}></View>
-          </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        {/* Row 1 */}
+        <View style={styles.row}>
+          <View style={[styles.box, styles.red, { flex: 1 }]} />
+          <View style={[styles.box, styles.teal, { flex: 2 }]} />
         </View>
-        {/* ==== Second View ==== */}
-        <View style={styles.firstView}>
-          <View>
-            <View style={styles.yellowBox}></View>
-          </View>
-          <View>
-            <View style={styles.pinkBox}></View>
-          </View>
+
+        {/* Row 2 */}
+        <View style={styles.row}>
+          <View style={[styles.box, styles.yellow, { flex: 2 }]} />
+          <View style={[styles.box, styles.pink, { flex: 1 }]} />
         </View>
-        {/* ==== Third View ==== */}
-        <View style={styles.firstView}>
-          <View>
-            <View style={styles.blueBox}></View>
-          </View>
-        </View>
-        {/* ==== Fourth View ==== */}
-        <View style={styles.firstView}>
-          <View>
-            <View style={styles.orageBox}></View>
-          </View>
-          <View>
-            <View style={styles.greenBox}></View>
-            <View style={styles.greenBox}></View>
+
+        {/* Full Width */}
+        <View style={[styles.box, styles.blue]} />
+
+        {/* Bottom Section */}
+        <View style={[styles.row, { flex: 1 }]}>
+          <View style={[styles.orangeTall, { flex: 1 }]} />
+
+          <View style={[styles.column, { flex: 1 }]}>
+            <View style={[styles.smallBox, styles.orange]} />
+            <View style={[styles.smallBox, styles.green]} />
           </View>
         </View>
       </SafeAreaView>
@@ -52,63 +42,45 @@ function App() {
 }
 
 const styles = StyleSheet.create({
-  //MainView
-  primaryView: {
-    backgroundColor: '#FFFFFF',
+  container: {
     flex: 1,
     padding: 10,
-  },
-  //First View
-  firstView: {
-    margin: 10,
-    flexDirection: 'row',
-    gap: 15,
-    alignSelf: 'center',
+    backgroundColor: '#fff',
   },
 
-  //Red Box
-  redBox: {
-    backgroundColor: '#FF0000',
-    width: 100,
+  row: {
+    flexDirection: 'row',
+    gap: 10,
+    marginBottom: 10,
+  },
+
+  column: {
+    gap: 15,
+  },
+
+  box: {
     height: 100,
+    borderRadius: 10,
   },
-  //Teal Box first
-  teal: {
-    backgroundColor: '#9CD5FF',
-    width: 250,
-    height: 100,
+
+  smallBox: {
+    flex: 1,
+    borderRadius: 10,
   },
-  //pink Box
-  pinkBox: {
-    backgroundColor: '#FFA6A6',
-    width: 100,
-    height: 100,
+
+  orangeTall: {
+    flex: 1,
+    backgroundColor: '#F57C00',
+    borderRadius: 10,
   },
-  //yello box
-  yellowBox: {
-    backgroundColor: '#FFD150',
-    width: 250,
-    height: 100,
-  },
-  //3rd box full view
-  blueBox: {
-    backgroundColor: '#9CD5FF',
-    width: 360,
-    height: 100,
-  },
-  //orange box
-  orageBox: {
-    backgroundColor: '#FF7F11',
-    width: 90,
-    height: 200,
-  },
-  //GreenBox
-  greenBox: {
-    backgroundColor: '#6D9E51',
-    width: 240,
-    height: 80,
-    margin: 10,
-  },
+
+  red: { backgroundColor: '#FF4C4C' },
+  teal: { backgroundColor: '#00B3C6' },
+  yellow: { backgroundColor: '#FFD54F' },
+  pink: { backgroundColor: '#FF80AB' },
+  blue: { backgroundColor: '#00838F', marginBottom: 10 },
+  orange: { backgroundColor: '#FBC02D' },
+  green: { backgroundColor: '#4CAF50' },
 });
 
 export default App;
