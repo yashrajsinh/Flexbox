@@ -31,6 +31,21 @@ function App() {
           </View>
         </View>
         {/* ==== Third View ==== */}
+        <View style={styles.firstView}>
+          <View>
+            <View style={styles.blueBox}></View>
+          </View>
+        </View>
+        {/* ==== Fourth View ==== */}
+        <View style={styles.firstView}>
+          <View>
+            <View style={styles.orageBox}></View>
+          </View>
+          <View>
+            <View style={styles.greenBox}></View>
+            <View style={styles.greenBox}></View>
+          </View>
+        </View>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -48,7 +63,7 @@ const styles = StyleSheet.create({
     margin: 10,
     flexDirection: 'row',
     gap: 15,
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
   },
 
   //Red Box
@@ -74,6 +89,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFD150',
     width: 250,
     height: 100,
+  },
+  //3rd box full view
+  blueBox: {
+    backgroundColor: '#9CD5FF',
+    width: 360,
+    height: 100,
+  },
+  //orange box
+  orageBox: {
+    backgroundColor: '#FF7F11',
+    width: 90,
+    height: 200,
+  },
+  //GreenBox
+  greenBox: {
+    backgroundColor: '#6D9E51',
+    width: 240,
+    height: 80,
+    margin: 10,
   },
 });
 
